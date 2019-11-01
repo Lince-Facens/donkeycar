@@ -231,6 +231,8 @@ class Tub(object):
                 json_data[key]=path
 
             elif typ == 'image_array':
+                if val is None:
+                    continue
                 img = Image.fromarray(np.uint8(val))
                 name = self.make_file_name(key, ext='.jpg')
                 img.save(os.path.join(self.path, name))
